@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Real-time chat application with custom ChatSync Protocol">
+  <title>ChatSync - Real-Time Chat Application</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Login Screen -->
+  <div id="loginScreen" class="screen active">
+    <div class="login-container">
+      <div class="logo-section">
+        <div class="logo-icon">💬</div>
+        <h1 class="app-title">ChatSync</h1>
+        <p class="app-subtitle">Real-Time Communication Protocol</p>
+      </div>
+      
+      <div class="login-form">
+        <div class="input-group">
+          <label for="usernameInput">Username</label>
+          <input 
+            type="text" 
+            id="usernameInput" 
+            placeholder="Enter your username" 
+            maxlength="20"
+            autocomplete="off"
+          >
+        </div>
+        
+        <div class="input-group">
+          <label for="roomInput">Room Name</label>
+          <input 
+            type="text" 
+            id="roomInput" 
+            placeholder="Enter room name" 
+            maxlength="30"
+            autocomplete="off"
+          >
+        </div>
+        
+        <button id="joinBtn" class="primary-btn">
+          <span>Join Chat</span>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="protocol-info">
+        <p>🔒 Powered by ChatSync Protocol (CSP)</p>
+        <p class="info-detail">WebSocket-based real-time messaging</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chat Screen -->
+  <div id="chatScreen" class="screen">
+    <div class="chat-container">
+      <!-- Header -->
+      <header class="chat-header">
+        <div class="header-left">
+          <div class="room-icon">🏠</div>
+          <div class="room-info">
+            <h2 id="roomName">Room Name</h2>
+            <p id="connectionStatus" class="status-text">Connecting...</p>
+          </div>
+        </div>
+        
+        <div class="header-right">
+          <div class="user-badge">
+            <span class="user-icon">👤</span>
+            <span id="currentUsername">User</span>
+          </div>
+          <button id="leaveBtn" class="icon-btn" title="Leave Room">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4m7 14l5-5-5-5m5 5H9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Messages Area -->
+      <div class="messages-container" id="messagesContainer">
+        <div class="welcome-message">
+          <div class="welcome-icon">✨</div>
+          <h3>Welcome to ChatSync!</h3>
+          <p>Start chatting with others in real-time</p>
+        </div>
+      </div>
+
+      <!-- Typing Indicator -->
+      <div id="typingIndicator" class="typing-indicator hidden">
+        <div class="typing-dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <span id="typingText">Someone is typing...</span>
+      </div>
+
+      <!-- Message Input -->
+      <div class="message-input-container">
+        <div class="input-wrapper">
+          <input 
+            type="text" 
+            id="messageInput" 
+            placeholder="Type your message..." 
+            maxlength="500"
+            autocomplete="off"
+          >
+          <button id="sendBtn" class="send-btn" title="Send Message">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

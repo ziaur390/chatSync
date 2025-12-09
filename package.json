@@ -1,0 +1,22 @@
+{
+    "name": "realtime-chat-ccp",
+    "version": "1.0.0",
+    "description": "Real-time chat application with custom protocol for Web Engineering",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "node server.js"
+    },
+    "keywords": [
+        "chat",
+        "websocket",
+        "real-time",
+        "protocol",
+        "computer-networks"
+    ],
+    "author": "COMP-351 Student",
+    "license": "MIT",
+    "dependencies": {
+        "ws": "^8.14.2"
+    }
+}
